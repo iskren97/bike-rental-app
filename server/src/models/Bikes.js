@@ -6,6 +6,11 @@ const bikesSchema = new mongoose.Schema({
   location: { type: Number, required: true },
   rating: { type: String, required: true },
   availability: { type: Boolean, required: true },
+  reservedBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'users',
+    required: true,
+  },
 });
 
 const BikeModel = mongoose.model('bikes', bikesSchema);

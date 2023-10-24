@@ -14,6 +14,12 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: 'user',
   },
+  reservedBikes: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'bikes',
+    },
+  ],
 });
 
 const UserModel = mongoose.model('users', userSchema);
