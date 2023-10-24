@@ -25,13 +25,10 @@ const DescParagraph = styled.p`
 const ImagePrimary = styled.img`
   width: 50rem;
   height: 50rem;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 50%;
   transition: all 0.2s;
-
-  &:hover {
-    transform: scale(1.2);
-  }
+  box-shadow: 0px 0px 2rem ${colors.primary};
 `;
 
 const ButtonsContainer = styled.div`
@@ -53,7 +50,7 @@ const BookingButton = styled.button`
   border: solid 1px ${colors.primary};
 
   &:hover {
-    background-color: rgba(190, 220, 130, 255);
+    background-color: ${colors.primary};
     color: ${colors.white};
     box-shadow: 0px 0px 10px ${colors.blackLighter};
   }
