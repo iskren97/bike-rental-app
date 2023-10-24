@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { colors } from '../../styles/constants';
+import { BaseButton } from '../../styles/styles';
 
 const NavbarContainer = styled.nav`
   min-height: 5rem;
@@ -40,4 +41,22 @@ const StyledLinkContainer = styled.div`
   padding: 1rem;
 `;
 
-export { NavbarContainer, StyledLink, StyledLogo, StyledLinkContainer };
+const StyledLogout = styled.button`
+  ${BaseButton}
+  color: ${colors.primary};
+  background: none;
+
+  &:hover {
+    background-color: ${colors.primary};
+    color: ${colors.white};
+    box-shadow: 0px 0px 10px ${colors.blackLighter};
+  }
+`;
+
+export {
+  NavbarContainer,
+  StyledLink,
+  StyledLogo,
+  StyledLinkContainer,
+  StyledLogout,
+};
