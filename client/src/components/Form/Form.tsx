@@ -2,9 +2,11 @@ import React, { FC } from 'react';
 import {
   StyledButton,
   StyledForm,
+  StyledFormLink,
   StyledHeading,
   StyledInput,
   StyledLabel,
+  StyledParagraph,
 } from './Form.styled';
 
 interface FormProps {
@@ -28,7 +30,6 @@ const Form: FC<FormProps> = ({
     <>
       <StyledForm onSubmit={handleSubmit}>
         <StyledHeading>{label}</StyledHeading>
-
         <StyledLabel htmlFor="name">Username</StyledLabel>
         <StyledInput
           placeholder="john_doe"
@@ -39,21 +40,34 @@ const Form: FC<FormProps> = ({
             setUsername(e.target.value)
           }
         />
-
         <StyledLabel htmlFor="password">Password</StyledLabel>
         <StyledInput
           placeholder="password"
           type="password"
           id="password"
+          autoComplete="on"
           value={password}
           onChange={(e: React.ChangeEvent<HTMLInputElement>): void =>
             setPassword(e.target.value)
           }
         />
-
         <StyledButton disabled={!username || !password} type="submit">
           {label}
         </StyledButton>
+
+        <>
+          {label === 'Login' ? (
+            <>
+              <StyledParagraph>Don't have an account?</StyledParagraph>
+              {<StyledFormLink to={'/register'}>Sign up here</StyledFormLink>}
+            </>
+          ) : (
+            <>
+              <StyledParagraph>Already have an account?</StyledParagraph>
+              {<StyledFormLink to={'/login'}>Sign in here</StyledFormLink>}
+            </>
+          )}
+        </>
       </StyledForm>
     </>
   );

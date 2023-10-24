@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { colors } from '../../styles/constants';
+import { Link } from 'react-router-dom';
 
 const StyledForm = styled.form`
   position: absolute;
@@ -8,7 +9,6 @@ const StyledForm = styled.form`
   transform: translate(-50%, -50%);
   text-align: center;
   background-color: ${colors.white};
-  border-radius: 5px;
 `;
 
 const StyledHeading = styled.h1`
@@ -40,6 +40,7 @@ const StyledButton = styled.button`
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-bottom: 2rem;
 
   &:disabled {
     opacity: 0.5;
@@ -49,4 +50,28 @@ const StyledButton = styled.button`
   }
 `;
 
-export { StyledForm, StyledHeading, StyledLabel, StyledInput, StyledButton };
+const StyledParagraph = styled.p`
+  display: inline-block;
+  font-size: 1.4rem;
+`;
+
+const StyledFormLink = styled(Link)`
+  text-decoration: none;
+  color: ${colors.black};
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+export {
+  StyledForm,
+  StyledHeading,
+  StyledLabel,
+  StyledInput,
+  StyledButton,
+  StyledParagraph,
+  StyledFormLink,
+};
