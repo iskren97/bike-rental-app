@@ -8,7 +8,6 @@ import {
 } from './Header.styled';
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
-import useUser from '../../hooks/useUser';
 
 const Header = () => {
   const [cookies, setCookies] = useCookies(['access_token']);
@@ -22,7 +21,7 @@ const Header = () => {
 
   return (
     <NavbarContainer>
-      <StyledLogo src={logo} alt="logo" />
+      <StyledLogo src={logo} alt="logo" onClick={() => navigate('/')} />
 
       <StyledLinkContainer>
         <StyledLink to={'/'}>Home</StyledLink>
