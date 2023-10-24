@@ -64,4 +64,35 @@ router.get('/', async (req, res) => {
   }
 });
 
+// update user by id
+router.put('/:id', async (req, res) => {
+  try {
+    const user = await UserModel.findOneAndUpdate(
+      { _id: req.params.id },
+      req.body
+    );
+    await user.save();
+    res.send(user);
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+});
+
+// delete user by id
+router.delete('/:id', async (req, res) => {
+  try {
+    const user = await UserModel.findOneAndDelete({
+      _id: req.params.id,
+    });
+
+    if (!user) {
+      res.status(404).send();
+    }
+
+    res.send(user);
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+});
+
 export { router as userRouter };
