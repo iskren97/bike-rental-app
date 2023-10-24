@@ -5,6 +5,7 @@ const HomeContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin: 5rem;
 `;
 
 const DescContainer = styled.div`
@@ -28,7 +29,7 @@ const ImagePrimary = styled.img`
   object-fit: cover;
   border-radius: 50%;
   transition: all 0.2s;
-  box-shadow: 0px 0px 2rem ${colors.primary};
+  box-shadow: 0px 0px 1rem ${colors.primary};
 `;
 
 const ButtonsContainer = styled.div`

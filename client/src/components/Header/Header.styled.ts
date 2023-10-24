@@ -8,10 +8,11 @@ const NavbarContainer = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 `;
 
 const StyledLink = styled(Link)`
-  font-size: 20px;
+  font-size: 2rem;
   text-decoration: none;
   transition: all 0.2s;
   color: ${colors.black};
@@ -36,7 +37,7 @@ const StyledLogo = styled.img`
 const StyledLinkContainer = styled.div`
   display: flex;
   gap: 2rem;
-  padding: 10px;
+  padding: 1rem;
 `;
 
 export { NavbarContainer, StyledLink, StyledLogo, StyledLinkContainer };
