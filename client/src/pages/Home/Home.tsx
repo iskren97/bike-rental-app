@@ -8,8 +8,14 @@ import {
 } from './Home.styled';
 import { colors } from '../../styles/constants';
 import DatePicker from '../../components/DatePicker/DatePicker';
+import { useRef } from 'react';
 
 const Home = () => {
+  const bookingSectionRef = useRef<null | HTMLElement>(null);
+  const handleScrollToRef = () => {
+    bookingSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <>
       <HomeContainer>
@@ -21,7 +27,9 @@ const Home = () => {
           </DescParagraph>
 
           <ButtonsContainer>
-            <BookingButton>Book a bike</BookingButton>
+            <BookingButton onClick={handleScrollToRef}>
+              Book a bike
+            </BookingButton>
             <BookingButton color={colors.primary}>
               See all available bikes
             </BookingButton>
@@ -29,7 +37,7 @@ const Home = () => {
         </DescContainer>
       </HomeContainer>
 
-      <DatePicker />
+      <DatePicker sectionRef={bookingSectionRef} />
     </>
   );
 };
