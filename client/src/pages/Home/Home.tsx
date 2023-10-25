@@ -5,9 +5,7 @@ import {
   DescParagraph,
   HeadingPrimary,
   HomeContainer,
-  ImagePrimary,
 } from './Home.styled';
-import biking from '../../assets/biking-group.jpg';
 import { colors } from '../../styles/constants';
 
 const Home = () => {
@@ -27,8 +25,6 @@ const Home = () => {
           </BookingButton>
         </ButtonsContainer>
       </DescContainer>
-
-      <ImagePrimary src={biking} alt="biking-group" />
     </HomeContainer>
   );
 };

@@ -55,19 +55,17 @@ const Form: FC<FormProps> = ({
           {label}
         </StyledButton>
 
-        <>
-          {label === 'Login' ? (
-            <>
-              <StyledParagraph>Don't have an account?</StyledParagraph>
-              {<StyledFormLink to={'/register'}>Sign up here</StyledFormLink>}
-            </>
-          ) : (
-            <>
-              <StyledParagraph>Already have an account?</StyledParagraph>
-              {<StyledFormLink to={'/login'}>Sign in here</StyledFormLink>}
-            </>
-          )}
-        </>
+        {label === 'Login' ? (
+          <>
+            <StyledParagraph>Don't have an account?</StyledParagraph>
+            {<StyledFormLink to={'/register'}>Sign up here</StyledFormLink>}
+          </>
+        ) : (
+          <>
+            <StyledParagraph>Already have an account?</StyledParagraph>
+            {<StyledFormLink to={'/login'}>Sign in here</StyledFormLink>}
+          </>
+        )}
       </StyledForm>
     </>
   );

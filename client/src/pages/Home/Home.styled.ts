@@ -1,12 +1,19 @@
 import styled from 'styled-components';
 import { colors } from '../../styles/constants';
 import { BaseButton } from '../../styles/styles';
+import mainImage from '../../assets/home-page-image-main.jpg';
 
 const HomeContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin: 5rem;
+  height: 95vh;
+  background-image: linear-gradient(
+      to right,
+      ${colors.secondary},
+      ${colors.tertiary}
+    ),
+    url(${mainImage});
+  background-size: cover;
+  background-position: right;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 `;
 
 const DescContainer = styled.div`
@@ -17,11 +24,14 @@ const DescContainer = styled.div`
 `;
 
 const HeadingPrimary = styled.h1`
-  font-size: 4rem;
+  font-size: 5rem;
+  color: ${colors.white};
+  margin-top: 8rem;
 `;
 
 const DescParagraph = styled.p`
   font-size: 2rem;
+  color: ${colors.white};
 `;
 
 const ImagePrimary = styled.img`
