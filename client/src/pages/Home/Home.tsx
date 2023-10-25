@@ -9,11 +9,12 @@ import {
 import { colors } from '../../styles/constants';
 import DatePicker from '../../components/DatePicker/DatePicker';
 import { useRef } from 'react';
+import AboutSection from '../../components/AboutSection/AboutSection';
 
 const Home = () => {
   const bookingSectionRef = useRef<null | HTMLElement>(null);
-  const handleScrollToRef = () => {
-    bookingSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+  const handleScrollToRef = (ref: any) => {
+    ref.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -27,7 +28,7 @@ const Home = () => {
           </DescParagraph>
 
           <ButtonsContainer>
-            <BookingButton onClick={handleScrollToRef}>
+            <BookingButton onClick={() => handleScrollToRef(bookingSectionRef)}>
               Book a bike
             </BookingButton>
             <BookingButton color={colors.primary}>
@@ -38,6 +39,7 @@ const Home = () => {
       </HomeContainer>
 
       <DatePicker sectionRef={bookingSectionRef} />
+      <AboutSection />
     </>
   );
 };

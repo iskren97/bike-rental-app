@@ -5,6 +5,7 @@ import {
   StyledLinkContainer,
   StyledLogo,
   StyledLogout,
+  StyledScrollLink,
 } from './Header.styled';
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
@@ -25,8 +26,11 @@ const Header = () => {
 
       <StyledLinkContainer>
         <StyledLink to={'/'}>Home</StyledLink>
-        <StyledLink to={'/bikes'}>Bikes</StyledLink>
-        <StyledLink to={'/users'}>Users</StyledLink>
+        <StyledLink to={'#bikes'}>Bikes</StyledLink>
+        <StyledLink to={'#users'}>Users</StyledLink>
+        <StyledScrollLink activeClass="active" smooth spy to="about">
+          About
+        </StyledScrollLink>
       </StyledLinkContainer>
 
       {!cookies.access_token ? (
