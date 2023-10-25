@@ -17,6 +17,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   transition: all 0.2s;
   color: ${colors.black};
+  border-bottom: 1px solid ${colors.primary};
 
   &:hover {
     transform: scale(1.2);
