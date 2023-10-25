@@ -10,6 +10,7 @@ import {
   UpIcon,
 } from './DatePicker.styled';
 import { FC, LegacyRef, useState } from 'react';
+import BookingInfo from '../BookingInfo/BookingInfo';
 
 interface DatePickerProps {
   sectionRef: LegacyRef<HTMLElement>;
@@ -23,37 +24,40 @@ const DatePicker: FC<DatePickerProps> = ({ sectionRef }) => {
   const [isReturnOpen, setIsReturnOpen] = useState<boolean>(false);
 
   return (
-    <BookingSection ref={sectionRef}>
-      <IconCalendarContainer>
-        <Icon
-          color={colors.primary}
-          onClick={() => setIsPickUpOpen(!isPickUpOpen)}
-        >
-          <BiCalendarCheck />
-          Pick Up Date
-          {isPickUpOpen ? <UpIcon /> : <DownIcon />}
-        </Icon>
-        {isPickUpOpen && (
-          <DateCalendar value={pickUpDate} onChange={setPickUpDate as any} />
-        )}
-      </IconCalendarContainer>
+    <>
+      <BookingSection ref={sectionRef}>
+        <IconCalendarContainer>
+          <Icon
+            color={colors.primary}
+            onClick={() => setIsPickUpOpen(!isPickUpOpen)}
+          >
+            <BiCalendarCheck />
+            Pick Up Date
+            {isPickUpOpen ? <UpIcon /> : <DownIcon />}
+          </Icon>
+          {isPickUpOpen && (
+            <DateCalendar value={pickUpDate} onChange={setPickUpDate as any} />
+          )}
+        </IconCalendarContainer>
 
-      <IconCalendarContainer>
-        <Icon
-          color={colors.tertiary}
-          onClick={() => setIsReturnOpen(!isReturnOpen)}
-        >
-          <BiCalendarCheck />
-          Return Date
-          {isReturnOpen ? <UpIcon /> : <DownIcon />}
-        </Icon>
-        {isReturnOpen && (
-          <DateCalendar value={returnDate} onChange={setReturnDate as any} />
-        )}
-      </IconCalendarContainer>
+        <IconCalendarContainer>
+          <Icon
+            color={colors.tertiary}
+            onClick={() => setIsReturnOpen(!isReturnOpen)}
+          >
+            <BiCalendarCheck />
+            Return Date
+            {isReturnOpen ? <UpIcon /> : <DownIcon />}
+          </Icon>
+          {isReturnOpen && (
+            <DateCalendar value={returnDate} onChange={setReturnDate as any} />
+          )}
+        </IconCalendarContainer>
 
-      <BookingButton>Book a Bike</BookingButton>
-    </BookingSection>
+        <BookingButton>Book a Bike</BookingButton>
+      </BookingSection>
+      <BookingInfo />
+    </>
   );
 };
 

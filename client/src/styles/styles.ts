@@ -10,6 +10,7 @@ const BaseButton = css`
   transition: all 0.2s;
   border-radius: 0.5rem;
   border: solid 1px ${colors.primary};
+  user-select: none;
 `;
 
 export { BaseButton };

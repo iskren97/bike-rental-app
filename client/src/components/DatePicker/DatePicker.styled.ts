@@ -9,7 +9,7 @@ const BookingSection = styled.section`
   justify-content: center;
   gap: 2rem;
   margin-top: -20vh;
-  padding: 30rem 0;
+  padding: 25rem 0;
 `;
 
 const IconCalendarContainer = styled.div`
