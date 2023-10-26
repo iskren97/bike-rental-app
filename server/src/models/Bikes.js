@@ -5,7 +5,7 @@ const bikesSchema = new mongoose.Schema({
   imgUrl: { type: String, required: true },
   color: { type: String, required: true },
   location: { type: String, required: true },
-  rating: { type: Number },
+  rating: { type: Number, default: 1 },
   availability: { type: Boolean, default: true },
   reservedBy: {
     type: mongoose.Schema.Types.ObjectId,
