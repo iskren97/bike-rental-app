@@ -11,7 +11,7 @@ import DatePicker from '../../components/DatePicker/DatePicker';
 import { useRef } from 'react';
 import AboutSection from '../../components/AboutSection/AboutSection';
 import BikesSection from '../../components/BikesSection/BikesSection';
-import ScrollToTop from '../../helpers/ScrollToTop';
+import ScrollToTop from '../../helpers/ScrollToTop/ScrollToTop';
 
 const Home = () => {
   const bookingSectionRef = useRef<null | HTMLElement>(null);

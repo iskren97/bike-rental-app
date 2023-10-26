@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { FaAngleUp } from 'react-icons/fa';
-import { colors } from '../styles/constants';
+import { colors } from '../../styles/constants';
 
 const ScrollContainer = styled.div`
   position: relative;
