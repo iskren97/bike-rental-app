@@ -32,7 +32,7 @@ const Header = () => {
         <StyledScrollLink activeClass="active" smooth spy to="about">
           About
         </StyledScrollLink>
-        <StyledLink to={'#users'}>Users</StyledLink>
+        <StyledLink to={'/manager'}>Manager Portal</StyledLink>
       </StyledLinkContainer>
 
       {!cookies.access_token ? (
