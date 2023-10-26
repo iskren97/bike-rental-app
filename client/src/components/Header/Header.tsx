@@ -26,11 +26,13 @@ const Header = () => {
 
       <StyledLinkContainer>
         <StyledLink to={'/'}>Home</StyledLink>
-        <StyledLink to={'#bikes'}>Bikes</StyledLink>
-        <StyledLink to={'#users'}>Users</StyledLink>
+        <StyledScrollLink activeClass="active" smooth spy to="bikes">
+          Bikes
+        </StyledScrollLink>
         <StyledScrollLink activeClass="active" smooth spy to="about">
           About
         </StyledScrollLink>
+        <StyledLink to={'#users'}>Users</StyledLink>
       </StyledLinkContainer>
 
       {!cookies.access_token ? (
