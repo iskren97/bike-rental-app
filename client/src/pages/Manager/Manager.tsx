@@ -7,7 +7,7 @@ import {
   ManagerPortalHeading,
   ManagerPortalNav,
 } from './Manager.styled';
-import Users from '../../components/Users/Users';
+import Users from './components/Users/Users';
 
 const Manager = () => {
   const [cookies, _] = useCookies(['access_token']);

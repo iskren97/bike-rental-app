@@ -1,5 +1,5 @@
 import { AiOutlineUser } from 'react-icons/ai';
-import useFetchData from '../../hooks/useFetchData';
+import useFetchData from '../../../../hooks/useFetchData';
 import {
   UsersActionButton,
   UsersContainer,
