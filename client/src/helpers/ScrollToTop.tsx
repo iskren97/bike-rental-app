@@ -3,7 +3,7 @@ import { ScrollContainer, ScrollIcon } from './ScrollToTop.styled';
 import { animateScroll as scroll } from 'react-scroll';
 
 const ScrollToTop = () => {
-  const [showTopBtn, setShowTopBtn] = useState(false);
+  const [showTopBtn, setShowTopBtn] = useState<boolean>(false);
   useEffect(() => {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 400) {

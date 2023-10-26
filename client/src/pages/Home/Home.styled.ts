@@ -26,7 +26,7 @@ const DescContainer = styled.div`
 const HeadingPrimary = styled.h1`
   font-size: 5rem;
   color: ${colors.white};
-  margin-top: 8rem;
+  margin-top: 6rem;
 `;
 
 const DescParagraph = styled.p`

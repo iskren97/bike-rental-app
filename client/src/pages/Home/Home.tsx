@@ -10,6 +10,8 @@ import { colors } from '../../styles/constants';
 import DatePicker from '../../components/DatePicker/DatePicker';
 import { useRef } from 'react';
 import AboutSection from '../../components/AboutSection/AboutSection';
+import BikesSection from '../../components/BikesSection/BikesSection';
+import ScrollToTop from '../../helpers/ScrollToTop';
 
 const Home = () => {
   const bookingSectionRef = useRef<null | HTMLElement>(null);
@@ -40,6 +42,8 @@ const Home = () => {
 
       <DatePicker sectionRef={bookingSectionRef} />
       <AboutSection />
+      <BikesSection />
+      <ScrollToTop />
     </>
   );
 };
