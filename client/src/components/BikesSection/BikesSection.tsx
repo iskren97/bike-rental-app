@@ -27,6 +27,7 @@ const BikesSection = () => {
             {bikes?.map((bike) => {
               return (
                 <Bike
+                  key={bike._id}
                   model={bike.model}
                   color={bike.color}
                   location={bike.location}

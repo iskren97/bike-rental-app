@@ -11,6 +11,10 @@ const BaseButton = css`
   border-radius: 0.5rem;
   border: solid 1px ${colors.primary};
   user-select: none;
+
+  &:disabled {
+    pointer-events: none;
+  }
 `;
 
 export { BaseButton };

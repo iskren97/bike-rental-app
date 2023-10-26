@@ -8,6 +8,7 @@ import {
   ManagerPortalNav,
 } from './Manager.styled';
 import Users from './components/Users/Users';
+import Bikes from './components/Bikes/Bikes';
 
 const Manager = () => {
   const [cookies, _] = useCookies(['access_token']);
@@ -40,6 +41,7 @@ const Manager = () => {
       </ManagerPortalNav>
 
       {subpath === 'users' && <Users />}
+      {subpath === 'bikes' && <Bikes />}
     </ManagerPortalContainer>
   );
 };
