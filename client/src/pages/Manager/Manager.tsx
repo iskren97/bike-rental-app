@@ -1,5 +1,4 @@
-import { useCookies } from 'react-cookie';
-import { useNavigate, Link, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { StyledLink } from '../../components/Header/Header.styled';
 import { colors } from '../../styles/constants';
 import {
@@ -11,13 +10,7 @@ import Users from './components/Users/Users';
 import Bikes from './components/Bikes/Bikes';
 
 const Manager = () => {
-  const [cookies, _] = useCookies(['access_token']);
-  const navigate = useNavigate();
   const { subpath } = useParams();
-
-  if (!cookies.access_token) {
-    navigate('/');
-  }
 
   const linkClasses = (type: string = '') => {
     if (type === subpath) {
