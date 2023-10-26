@@ -1,37 +1,33 @@
 import React, { useState } from 'react';
-import Form from '../components/Form/Form';
-import { useCookies } from 'react-cookie';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Form from '../../components/Form/Form';
+import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Register = () => {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [_, setCookies] = useCookies(['access_token']);
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('/users/login', {
+      await axios.post('/users/register', {
         username,
         password,
       });
 
-      setCookies('access_token', response.data.token);
-      window.localStorage.setItem('user', JSON.stringify(response.data.user));
-      alert('Success');
-      navigate('/');
+      alert('Registration completed!');
+      navigate('/login');
     } catch (error) {
-      console.log(error);
+      alert('Error!');
     }
   };
 
   return (
     <>
       <Form
-        label={'Login'}
+        label={'Register'}
         username={username}
         setUsername={setUsername}
         password={password}
@@ -42,4 +38,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
