@@ -6,7 +6,7 @@ const bikesSchema = new mongoose.Schema({
   color: { type: String, required: true },
   location: { type: String, required: true },
   rating: { type: Number },
-  availability: { type: Boolean, required: true },
+  availability: { type: Boolean, default: true },
   reservedBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'users',
