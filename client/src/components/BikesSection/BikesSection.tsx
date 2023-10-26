@@ -6,8 +6,11 @@ import {
   BikesHeading,
   BikesContainer,
 } from './BikesSection.styled';
+import useFetchData from '../../hooks/useFetchData';
 
 const BikesSection = () => {
+  const { data: bikes } = useFetchData('/bikes');
+
   return (
     <>
       <BikesSectionContainer id="bikes">
@@ -15,17 +18,24 @@ const BikesSection = () => {
         <BikesContainer>
           <Carousel
             width={'100rem'}
-            // autoPlay
-            // infiniteLoop
-            centerMode
-            centerSlidePercentage={35}
+            autoPlay
+            infiniteLoop
+            showThumbs={false}
             showStatus={false}
+            showArrows={false}
           >
-            <Bike />
-            <Bike />
-            <Bike />
-            <Bike />
-            <Bike />
+            {bikes?.map((bike) => {
+              return (
+                <Bike
+                  model={bike.model}
+                  color={bike.color}
+                  location={bike.location}
+                  rating={bike.rating}
+                  availability={bike.availability}
+                  imgUrl={bike.imgUrl}
+                />
+              );
+            })}
           </Carousel>
         </BikesContainer>
       </BikesSectionContainer>

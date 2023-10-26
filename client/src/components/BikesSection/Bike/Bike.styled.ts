@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { colors } from '../../../styles/constants';
 
 const BikeContainer = styled.div`
   display: flex;
@@ -10,12 +9,11 @@ const BikeContainer = styled.div`
   padding: 2rem;
   margin: 1rem;
   border-radius: 1rem;
-  box-shadow: 0 0 4rem ${colors.blackLighter};
 `;
 
 const BikeImg = styled.img`
-  width: 30rem;
-  height: 30rem;
+  width: 20rem;
+  height: 20rem;
   object-fit: contain;
 `;
 

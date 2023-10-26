@@ -2,7 +2,11 @@ import { FC } from 'react';
 import { BookingButton } from '../../../pages/Home/Home.styled';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { FaLocationDot } from 'react-icons/fa6';
-import { IoIosColorPalette } from 'react-icons/io';
+import {
+  IoIosColorPalette,
+  IoIosCheckmarkCircleOutline,
+  IoIosCloseCircleOutline,
+} from 'react-icons/io';
 import { FcRating } from 'react-icons/fc';
 import {
   BikeContainer,
@@ -12,32 +16,45 @@ import {
 } from './Bike.styled';
 
 interface BikeProps {
-  model?: string;
-  color?: string;
-  location?: string;
-  rating?: number;
-  availability?: boolean;
+  model: string;
+  color: string;
+  location: string;
+  rating: number;
+  availability: boolean;
+  imgUrl: string;
 }
 
-const Bike: FC<BikeProps> = () => {
+const Bike: FC<BikeProps> = ({
+  model,
+  color,
+  location,
+  rating,
+  availability,
+  imgUrl,
+}) => {
   return (
     <BikeContainer>
-      <BikeImg
-        src="https://www.reidcycles.com.au/cdn/shop/products/reid-cycles-australia-mtb-sport-wsd-mountain-bike-light-blue-s-995.png?v=1620962151"
-        alt="bike"
-      />
-      <BikeModel>Tundra Bike</BikeModel>
+      <BikeImg src={imgUrl} alt="bike" />
+      <BikeModel>{model}</BikeModel>
       <BikeInfoParagraph>
-        <IoIosColorPalette /> blue ocean
+        <IoIosColorPalette />
+        {color}
       </BikeInfoParagraph>
       <BikeInfoParagraph>
-        <FaLocationDot /> Sofia, Bulgaria
+        <FaLocationDot /> {location}
       </BikeInfoParagraph>
       <BikeInfoParagraph>
-        <FcRating /> 4
+        <FcRating /> {rating}
       </BikeInfoParagraph>
-      <BikeInfoParagraph>Availability</BikeInfoParagraph>
-      <BookingButton style={{ width: '100%' }}>Rent Bike</BookingButton>
+      <BikeInfoParagraph>
+        Availability:{' '}
+        {availability === true ? (
+          <IoIosCheckmarkCircleOutline />
+        ) : (
+          <IoIosCloseCircleOutline />
+        )}
+      </BikeInfoParagraph>
+      <BookingButton disabled={!availability}>Rent Bike</BookingButton>
     </BikeContainer>
   );
 };
