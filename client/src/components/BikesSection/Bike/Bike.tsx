@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { BookingButton } from '../../../pages/Home/Home.styled';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { FaLocationDot } from 'react-icons/fa6';
 import {
@@ -13,6 +12,7 @@ import {
   BikeImg,
   BikeInfoParagraph,
   BikeModel,
+  BookBikeButton,
 } from './Bike.styled';
 
 interface BikeProps {
@@ -59,7 +59,7 @@ const Bike: FC<BikeProps> = ({
         )}
       </BikeInfoParagraph>
 
-      <BookingButton disabled={!availability}>Rent Bike</BookingButton>
+      <BookBikeButton disabled={!availability}>Rent Bike</BookBikeButton>
     </BikeContainer>
   );
 };
