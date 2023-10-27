@@ -5,6 +5,7 @@ export const colors = {
   blackLighter: 'rgba(0, 0, 0, 0.2)',
   black: '#000000',
   white: '#FFFFFF',
+  error: '#EB3223',
 };
 
 export const fonts = {

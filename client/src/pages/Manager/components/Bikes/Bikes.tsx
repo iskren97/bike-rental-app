@@ -1,8 +1,15 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { BikesContainer, BikesHeading } from './Bikes.styled';
+import {
+  BikesContainer,
+  BikesDeleteBikeButton,
+  BikesHeading,
+} from './Bikes.styled';
 import { covertToBase64 } from '../../../../helpers/Base64Convertor/Base64Covertor';
 import BikesForm from '../BikesForm/BikesForm';
+import useFetchData from '../../../../hooks/useFetchData';
+import Bike from '../../../../components/BikesSection/Bike/Bike';
+import { LoadingDisplay } from '../Users/Users.styled';
 
 const Bikes = () => {
   const [file, setFile] = useState<string>('');
@@ -12,6 +19,7 @@ const Bikes = () => {
     location: '',
     imgUrl: '',
   });
+  const { data: bikes, setData: setBikes, isFetching } = useFetchData('/bikes');
 
   const changeHandler = (e: any) => {
     setAllValues({ ...allValues, [e.target.name]: e.target.value });
@@ -21,13 +29,13 @@ const Bikes = () => {
     e.preventDefault();
 
     try {
-      await axios.post('/bikes/create', {
+      const { data } = await axios.post('/bikes/create', {
         model: allValues.model,
         color: allValues.color,
         location: allValues.location,
         imgUrl: file,
       });
-
+      setBikes((prevBikes) => [...prevBikes, data]);
       setAllValues({
         model: '',
         color: '',
@@ -38,7 +46,9 @@ const Bikes = () => {
       (e.target as HTMLFormElement).reset();
 
       alert('Success!');
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -51,6 +61,23 @@ const Bikes = () => {
     setFile(base64);
   };
 
+  const handleBikeDelete = (bikeID: number) => {
+    axios
+      .delete(`/bikes/${bikeID}`)
+      .then(({ data }) => {
+        setBikes((prevBikes) =>
+          prevBikes.filter((bike) => bike._id !== data._id)
+        );
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  if (isFetching) {
+    return <LoadingDisplay>Loading ...</LoadingDisplay>;
+  }
+
   return (
     <BikesContainer>
       <BikesHeading>List a bike for rent</BikesHeading>
@@ -59,6 +86,36 @@ const Bikes = () => {
         changeHandler={changeHandler}
         handleFileUpload={handleFileUpload}
       />
+
+      <BikesHeading>Listed Bikes:</BikesHeading>
+      {bikes.length > 0 ? (
+        <>
+          {bikes?.map((bike) => {
+            return (
+              <>
+                <Bike
+                  key={bike._id}
+                  model={bike.model}
+                  color={bike.color}
+                  location={bike.location}
+                  rating={bike.rating}
+                  availability={bike.availability}
+                  imgUrl={bike.imgUrl}
+                  hideRentButton={true}
+                />
+
+                <BikesDeleteBikeButton
+                  onClick={() => handleBikeDelete(bike._id)}
+                >
+                  Remove Bike
+                </BikesDeleteBikeButton>
+              </>
+            );
+          })}
+        </>
+      ) : (
+        <BikesHeading>There are not listed Bikes yet.</BikesHeading>
+      )}
     </BikesContainer>
   );
 };

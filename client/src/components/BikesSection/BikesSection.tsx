@@ -40,6 +40,7 @@ const BikesSection: FC<BikesSectionProps> = ({ sectionRef }) => {
                   rating={bike.rating}
                   availability={bike.availability}
                   imgUrl={bike.imgUrl}
+                  btnLabel="Rent Bike"
                 />
               );
             })}

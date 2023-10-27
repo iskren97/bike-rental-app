@@ -22,6 +22,7 @@ interface BikeProps {
   rating: number;
   availability: boolean;
   imgUrl: string;
+  hideRentButton?: boolean;
 }
 
 const Bike: FC<BikeProps> = ({
@@ -31,6 +32,7 @@ const Bike: FC<BikeProps> = ({
   rating,
   availability,
   imgUrl,
+  hideRentButton,
 }) => {
   return (
     <BikeContainer>
@@ -59,7 +61,9 @@ const Bike: FC<BikeProps> = ({
         )}
       </BikeInfoParagraph>
 
-      <BookBikeButton disabled={!availability}>Rent Bike</BookBikeButton>
+      <BookBikeButton hidden={hideRentButton} disabled={!availability}>
+        Rent Bike
+      </BookBikeButton>
     </BikeContainer>
   );
 };

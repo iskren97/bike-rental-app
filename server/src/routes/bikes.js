@@ -9,7 +9,7 @@ router.post('/create', async (req, res) => {
     const bike = new BikeModel(req.body);
 
     await bike.save();
-    res.send(bike);
+    return res.status(201).send(bike);
   } catch (error) {
     res.status(500).send({ message: error.message });
   }

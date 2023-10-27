@@ -11,7 +11,7 @@ import axios from 'axios';
 import { useState } from 'react';
 
 const Users = () => {
-  const { data, setData, isFetching } = useFetchData('/users');
+  const { data: users, setData, isFetching } = useFetchData('/users');
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   if (isFetching || isLoading) {
@@ -36,19 +36,25 @@ const Users = () => {
 
   return (
     <UsersContainer>
-      {data?.map((user) => {
-        return (
-          <UsersInnerContainer key={user._id}>
-            <AiOutlineUser />
-            <UsersParagraph>Username: {user.username}</UsersParagraph>
-            <UsersParagraph>Role: {user.role}</UsersParagraph>
-            <UsersActionButton onClick={() => handleUserDelete(user._id)}>
-              Delete User
-            </UsersActionButton>
-            <UsersActionButton disabled>Edit User</UsersActionButton>
-          </UsersInnerContainer>
-        );
-      })}
+      {users.length > 0 ? (
+        <>
+          {users.map((user) => {
+            return (
+              <UsersInnerContainer key={user._id}>
+                <AiOutlineUser />
+                <UsersParagraph>Username: {user.username}</UsersParagraph>
+                <UsersParagraph>Role: {user.role}</UsersParagraph>
+                <UsersActionButton onClick={() => handleUserDelete(user._id)}>
+                  Delete User
+                </UsersActionButton>
+                <UsersActionButton disabled>Edit User</UsersActionButton>
+              </UsersInnerContainer>
+            );
+          })}
+        </>
+      ) : (
+        <h1>No Users yet.</h1>
+      )}
     </UsersContainer>
   );
 };
