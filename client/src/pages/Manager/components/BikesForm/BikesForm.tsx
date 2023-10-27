@@ -5,6 +5,7 @@ import {
   BikesFormLabel,
   BikesFormSubmitButton,
 } from './BikesForm.styled';
+
 interface BikesFormProps {
   handleBikeListing: React.FormEventHandler<HTMLFormElement>;
   changeHandler: ChangeEventHandler<HTMLInputElement>;
@@ -19,14 +20,25 @@ const BikesForm: FC<BikesFormProps> = ({
   return (
     <StyledBikesForm onSubmit={handleBikeListing}>
       <BikesFormLabel>Model</BikesFormLabel>
-      <BikesFormInput name="model" onChange={(e) => changeHandler(e)} />
+      <BikesFormInput
+        name="model"
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => changeHandler(e)}
+      />
       <BikesFormLabel>Color</BikesFormLabel>
-      <BikesFormInput name="color" onChange={(e) => changeHandler(e)} />
+      <BikesFormInput
+        name="color"
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => changeHandler(e)}
+      />
       <BikesFormLabel>Location</BikesFormLabel>
-      <BikesFormInput name="location" onChange={(e) => changeHandler(e)} />
+      <BikesFormInput
+        name="location"
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => changeHandler(e)}
+      />
       <BikesFormLabel>Bike Image</BikesFormLabel>
       <BikesFormInput
-        onChange={(e) => handleFileUpload(e)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          handleFileUpload(e)
+        }
         type="file"
         name="image"
         accept="image/*"

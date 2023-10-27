@@ -40,6 +40,7 @@ const Form: FC<FormProps> = ({
             setUsername(e.target.value)
           }
         />
+
         <StyledLabel htmlFor="password">Password</StyledLabel>
         <StyledInput
           placeholder="password"
@@ -51,6 +52,7 @@ const Form: FC<FormProps> = ({
             setPassword(e.target.value)
           }
         />
+
         <StyledButton disabled={!username || !password} type="submit">
           {label}
         </StyledButton>

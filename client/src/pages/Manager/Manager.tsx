@@ -28,6 +28,7 @@ const Manager = () => {
         <StyledLink style={linkClasses('bikes')} to={'/manager/bikes'}>
           Bikes
         </StyledLink>
+
         <StyledLink style={linkClasses('users')} to={'/manager/users'}>
           Users
         </StyledLink>

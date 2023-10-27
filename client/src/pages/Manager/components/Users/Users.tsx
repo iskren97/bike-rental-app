@@ -45,7 +45,7 @@ const Users = () => {
             <UsersActionButton onClick={() => handleUserDelete(user._id)}>
               Delete User
             </UsersActionButton>
-            <UsersActionButton>Edit User</UsersActionButton>
+            <UsersActionButton disabled>Edit User</UsersActionButton>
           </UsersInnerContainer>
         );
       })}

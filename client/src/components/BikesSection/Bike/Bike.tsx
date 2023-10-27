@@ -35,17 +35,21 @@ const Bike: FC<BikeProps> = ({
   return (
     <BikeContainer>
       <BikeImg src={imgUrl} alt="bike" />
+
       <BikeModel>{model}</BikeModel>
       <BikeInfoParagraph>
         <IoIosColorPalette />
         {color}
       </BikeInfoParagraph>
+
       <BikeInfoParagraph>
         <FaLocationDot /> {location}
       </BikeInfoParagraph>
+
       <BikeInfoParagraph>
         <FcRating /> {rating}
       </BikeInfoParagraph>
+
       <BikeInfoParagraph>
         Availability:{' '}
         {availability === true ? (
@@ -54,6 +58,7 @@ const Bike: FC<BikeProps> = ({
           <IoIosCloseCircleOutline />
         )}
       </BikeInfoParagraph>
+
       <BookingButton disabled={!availability}>Rent Bike</BookingButton>
     </BikeContainer>
   );

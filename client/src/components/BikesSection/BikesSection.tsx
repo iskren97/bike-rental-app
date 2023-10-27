@@ -15,6 +15,7 @@ const BikesSection = () => {
     <>
       <BikesSectionContainer id="bikes">
         <BikesHeading>Explore Our Top Deals</BikesHeading>
+
         <BikesContainer>
           <Carousel
             width={'100rem'}
