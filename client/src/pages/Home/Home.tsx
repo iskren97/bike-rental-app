@@ -15,6 +15,8 @@ import ScrollToTop from '../../helpers/ScrollToTop/ScrollToTop';
 
 const Home = () => {
   const bookingSectionRef = useRef<null | HTMLElement>(null);
+  const bikesSectionRef = useRef<null | HTMLElement>(null);
+
   const handleScrollToRef = (ref: any) => {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -33,7 +35,11 @@ const Home = () => {
             <BookingButton onClick={() => handleScrollToRef(bookingSectionRef)}>
               Book a bike
             </BookingButton>
-            <BookingButton color={colors.primary}>
+
+            <BookingButton
+              onClick={() => handleScrollToRef(bikesSectionRef)}
+              color={colors.primary}
+            >
               See all available bikes
             </BookingButton>
           </ButtonsContainer>
@@ -42,7 +48,7 @@ const Home = () => {
 
       <DatePicker sectionRef={bookingSectionRef} />
       <AboutSection />
-      <BikesSection />
+      <BikesSection sectionRef={bikesSectionRef} />
       <ScrollToTop />
     </>
   );

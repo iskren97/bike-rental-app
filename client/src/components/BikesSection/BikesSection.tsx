@@ -1,3 +1,4 @@
+import { FC, LegacyRef } from 'react';
 import Bike from './Bike/Bike';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
@@ -8,12 +9,16 @@ import {
 } from './BikesSection.styled';
 import useFetchData from '../../hooks/useFetchData';
 
-const BikesSection = () => {
+interface BikesSectionProps {
+  sectionRef: LegacyRef<HTMLElement>;
+}
+
+const BikesSection: FC<BikesSectionProps> = ({ sectionRef }) => {
   const { data: bikes } = useFetchData('/bikes');
 
   return (
     <>
-      <BikesSectionContainer id="bikes">
+      <BikesSectionContainer id="bikes" ref={sectionRef}>
         <BikesHeading>Explore Our Top Deals</BikesHeading>
 
         <BikesContainer>
