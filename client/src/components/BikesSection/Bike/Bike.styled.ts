@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { BaseButton } from '../../../styles/styles';
-import { colors } from '../../../styles/constants';
+import { colors, fonts } from '../../../styles/constants';
 
 const BikeContainer = styled.div`
   display: flex;
@@ -18,11 +18,11 @@ const BikeImg = styled.img`
 `;
 
 const BikeModel = styled.h2`
-  font-size: 2.5rem;
+  font-size: ${fonts.size.extraMedium};
 `;
 
 const BikeInfoParagraph = styled.p`
-  font-size: 1.7rem;
+  font-size: ${fonts.size.medium};
 `;
 
 const BookBikeButton = styled.button`

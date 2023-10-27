@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { fonts } from '../../styles/constants';
 
 const BookingInfoContainer = styled.div`
   display: flex;
@@ -16,11 +17,11 @@ const InnerContainer = styled.div`
 `;
 
 const InfoHeading = styled.h2`
-  font-size: 3rem;
+  font-size: ${fonts.size.extraMedium};
 `;
 
 const InfoParagraph = styled.p`
-  font-size: 2rem;
+  font-size: ${fonts.size.medium};
 `;
 
 export { BookingInfoContainer, InnerContainer, InfoHeading, InfoParagraph };

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from '../../styles/constants';
+import { colors, fonts } from '../../styles/constants';
 
 const AboutSectionContainer = styled.section`
   display: flex;
@@ -31,12 +31,12 @@ const AboutDescriptionContainer = styled.div`
 `;
 
 const AboutHeading = styled.h1`
-  font-size: 4rem;
+  font-size: ${fonts.size.large};
   text-align: left;
 `;
 
 const AboutDescParagraph = styled.p`
-  font-size: 2rem;
+  font-size: ${fonts.size.medium};
   line-break: anywhere;
   line-height: 2.5rem;
 `;

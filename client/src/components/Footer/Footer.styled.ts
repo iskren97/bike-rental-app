@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from '../../styles/constants';
+import { colors, fonts } from '../../styles/constants';
 
 const StyledFooter = styled.footer`
   background-color: ${colors.tertiary};
@@ -29,7 +29,7 @@ const FooterInnerContainer = styled.div`
 `;
 
 const FooterParagraph = styled.p`
-  font-size: 2rem;
+  font-size: ${fonts.size.medium};
   color: ${colors.white};
 `;
 

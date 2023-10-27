@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { BaseButton } from '../../../../styles/styles';
-import { colors } from '../../../../styles/constants';
+import { colors, fonts } from '../../../../styles/constants';
 
 const UsersContainer = styled.div`
   display: flex;
@@ -16,7 +16,7 @@ const LoadingDisplay = styled.h1`
 `;
 
 const UsersInnerContainer = styled.div`
-  font-size: 2.5rem;
+  font-size: ${fonts.size.medium};
   box-shadow: 0 2px 4px 0 ${colors.blackLighter};
   padding: 3rem;
   height: 20rem;

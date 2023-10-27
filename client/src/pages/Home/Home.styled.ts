@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from '../../styles/constants';
+import { colors, fonts } from '../../styles/constants';
 import { BaseButton } from '../../styles/styles';
 import mainImage from '../../assets/home-page-image-main.jpg';
 
@@ -24,13 +24,13 @@ const DescContainer = styled.div`
 `;
 
 const HeadingPrimary = styled.h1`
-  font-size: 5rem;
+  font-size: ${fonts.size.larger};
   color: ${colors.white};
   margin-top: 6rem;
 `;
 
 const DescParagraph = styled.p`
-  font-size: 2rem;
+  font-size: ${fonts.size.medium};
   color: ${colors.white};
 `;
 

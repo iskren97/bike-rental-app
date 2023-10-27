@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from '../../styles/constants';
+import { colors, fonts } from '../../styles/constants';
 import { Link } from 'react-router-dom';
 
 const StyledForm = styled.form`
@@ -13,15 +13,15 @@ const StyledForm = styled.form`
 
 const StyledHeading = styled.h1`
   margin-bottom: 5rem;
-  font-size: 3rem;
+  font-size: ${fonts.size.extraMedium};
   border-bottom: 0.5rem solid ${colors.primary};
 `;
 
 const StyledLabel = styled.label`
   display: block;
   margin: 0.5rem;
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: ${fonts.size.small};
+  font-weight: ${fonts.weight.bold};
 `;
 
 const StyledInput = styled.input`
@@ -52,13 +52,13 @@ const StyledButton = styled.button`
 
 const StyledParagraph = styled.p`
   display: inline-block;
-  font-size: 1.4rem;
+  font-size: ${fonts.size.small};
 `;
 
 const StyledFormLink = styled(Link)`
   text-decoration: none;
   color: ${colors.black};
-  font-size: 1.2rem;
+  font-size: ${fonts.size.small};
   margin-left: 0.5rem;
 
   &:hover {

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from '../../styles/constants';
+import { colors, fonts } from '../../styles/constants';
 
 const BikesSectionContainer = styled.section`
   padding: 10rem 0 0 0;
@@ -8,7 +8,7 @@ const BikesSectionContainer = styled.section`
 const BikesHeading = styled.h1`
   text-align: center;
   text-transform: uppercase;
-  font-size: 4rem;
+  font-size: ${fonts.size.large};
   color: ${colors.tertiary};
   letter-spacing: 0.5rem;
   transition: all 0.2s;

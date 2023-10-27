@@ -6,3 +6,21 @@ export const colors = {
   black: '#000000',
   white: '#FFFFFF',
 };
+
+export const fonts = {
+  size: {
+    small: '1.4rem',
+    medium: '2rem',
+    extraMedium: '3rem',
+    large: '4rem',
+    larger: '5rem',
+  },
+  weight: {
+    light: 300,
+    normal: 400,
+    medium: 500,
+    semiBold: 600,
+    bold: 700,
+    extraBold: 800,
+  },
+};

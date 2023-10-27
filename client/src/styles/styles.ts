@@ -1,12 +1,12 @@
 import { css } from 'styled-components';
-import { colors } from './constants';
+import { colors, fonts } from './constants';
 
 const BaseButton = css`
   min-height: 3.5rem;
   padding: 0 1.5rem;
   cursor: pointer;
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: ${fonts.size.small};
+  font-weight: ${fonts.weight.bold};
   transition: all 0.2s;
   border-radius: 0.5rem;
   border: solid 1px ${colors.primary};

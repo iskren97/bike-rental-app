@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { fonts } from '../../styles/constants';
 
 const ManagerPortalContainer = styled.div`
   margin-top: 10rem;
@@ -7,7 +8,7 @@ const ManagerPortalContainer = styled.div`
 
 const ManagerPortalHeading = styled.h1`
   text-align: center;
-  font-size: 4rem;
+  font-size: ${fonts.size.large};
 `;
 
 const ManagerPortalNav = styled.nav`

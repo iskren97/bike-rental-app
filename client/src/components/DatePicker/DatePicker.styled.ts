@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { FaCaretUp, FaCaretDown } from 'react-icons/fa';
+import { fonts } from '../../styles/constants';
 
 const BookingSection = styled.section`
   display: flex;
@@ -17,18 +18,18 @@ const IconCalendarContainer = styled.div`
 `;
 
 const Icon = styled.span`
-  font-size: 4rem;
+  font-size: ${fonts.size.large};
   color: ${(props) => props.color};
   cursor: pointer;
   user-select: none;
 `;
 
 const UpIcon = styled(FaCaretUp)`
-  font-size: 2rem;
+  font-size: ${fonts.size.medium};
 `;
 
 const DownIcon = styled(FaCaretDown)`
-  font-size: 2rem;
+  font-size: ${fonts.size.medium};
 `;
 
 const DateCalendar = styled(Calendar)`

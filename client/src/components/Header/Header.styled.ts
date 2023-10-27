@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { colors } from '../../styles/constants';
+import { colors, fonts } from '../../styles/constants';
 import { BaseButton } from '../../styles/styles';
 import { Link as ScrollLink } from 'react-scroll';
 
@@ -10,7 +10,7 @@ const NavbarContainer = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px 0 ${colors.blackLighter};
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -19,7 +19,7 @@ const NavbarContainer = styled.nav`
 `;
 
 const StyledLink = styled(Link)`
-  font-size: 2rem;
+  font-size: ${fonts.size.medium};
   text-decoration: none;
   transition: all 0.2s;
   color: ${(props) => props.color || `${colors.black}`};
@@ -31,7 +31,7 @@ const StyledLink = styled(Link)`
 `;
 
 const StyledScrollLink = styled(ScrollLink)`
-  font-size: 2rem;
+  font-size: ${fonts.size.medium};
   text-decoration: none;
   transition: all 0.2s;
   color: ${colors.black};
