@@ -34,6 +34,10 @@ const Header = () => {
           About
         </StyledScrollLink>
 
+        <StyledScrollLink activeClass="active" smooth spy to="contact">
+          Contact
+        </StyledScrollLink>
+
         {cookies?.user_role === 'manager' && (
           <StyledLink to={'/manager'}>Manager Portal</StyledLink>
         )}

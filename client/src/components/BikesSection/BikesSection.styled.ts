@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import { colors } from '../../styles/constants';
 
 const BikesSectionContainer = styled.section`
-  padding: 10rem 0 50rem 0;
-  margin-top: '-10rem';
+  padding: 10rem 0 0 0;
 `;
 
 const BikesHeading = styled.h1`
@@ -24,7 +23,7 @@ const BikesContainer = styled.div`
   flex-direction: row;
   gap: 3rem;
   justify-content: center;
-  padding: 25rem 0 50rem 0;
+  padding: 25rem 0 10rem 0;
   margin-top: -10rem;
 `;
 

@@ -22,7 +22,7 @@ const StyledLink = styled(Link)`
   font-size: 2rem;
   text-decoration: none;
   transition: all 0.2s;
-  color: ${colors.black};
+  color: ${(props) => props.color || `${colors.black}`};
   border-bottom: 1px solid ${colors.primary};
 
   &:hover {

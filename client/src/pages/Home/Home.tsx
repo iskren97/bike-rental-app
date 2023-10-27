@@ -12,6 +12,7 @@ import { useRef } from 'react';
 import AboutSection from '../../components/AboutSection/AboutSection';
 import BikesSection from '../../components/BikesSection/BikesSection';
 import ScrollToTop from '../../helpers/ScrollToTop/ScrollToTop';
+import Footer from '../../components/Footer/Footer';
 
 const Home = () => {
   const bookingSectionRef = useRef<null | HTMLElement>(null);
@@ -49,6 +50,7 @@ const Home = () => {
       <DatePicker sectionRef={bookingSectionRef} />
       <AboutSection />
       <BikesSection sectionRef={bikesSectionRef} />
+      <Footer />
       <ScrollToTop />
     </>
   );
