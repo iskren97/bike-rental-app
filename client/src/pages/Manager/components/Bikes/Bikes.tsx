@@ -28,6 +28,15 @@ const Bikes = () => {
         imgUrl: file,
       });
 
+      setAllValues({
+        model: '',
+        color: '',
+        location: '',
+        imgUrl: '',
+      });
+
+      (e.target as HTMLFormElement).reset();
+
       alert('Success!');
     } catch (error) {}
   };
