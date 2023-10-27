@@ -7,7 +7,7 @@ import axios from 'axios';
 const Login = () => {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [_, setCookies] = useCookies(['access_token']);
+  const [_, setCookies] = useCookies(['access_token', 'user_role']);
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -19,8 +19,9 @@ const Login = () => {
         password,
       });
 
+      setCookies('user_role', response.data.user.role);
       setCookies('access_token', response.data.token);
-      window.localStorage.setItem('user', JSON.stringify(response.data.user));
+
       alert('Success');
       navigate('/');
     } catch (error) {

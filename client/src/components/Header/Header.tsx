@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 
 const Header = () => {
-  const [cookies, setCookies] = useCookies(['access_token']);
+  const [cookies, setCookies] = useCookies(['access_token', 'user_role']);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -29,10 +29,14 @@ const Header = () => {
         <StyledScrollLink activeClass="active" smooth spy to="bikes">
           Bikes
         </StyledScrollLink>
+
         <StyledScrollLink activeClass="active" smooth spy to="about">
           About
         </StyledScrollLink>
-        <StyledLink to={'/manager'}>Manager Portal</StyledLink>
+
+        {cookies.user_role === 'manager' && (
+          <StyledLink to={'/manager'}>Manager Portal</StyledLink>
+        )}
       </StyledLinkContainer>
 
       {!cookies.access_token ? (
