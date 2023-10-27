@@ -16,7 +16,7 @@ const Header = () => {
 
   const handleLogout = () => {
     setCookies('access_token', '');
-    localStorage.removeItem('user');
+    setCookies('user_role', '');
     navigate('/login');
   };
 
@@ -34,7 +34,7 @@ const Header = () => {
           About
         </StyledScrollLink>
 
-        {cookies.user_role === 'manager' && (
+        {cookies?.user_role === 'manager' && (
           <StyledLink to={'/manager'}>Manager Portal</StyledLink>
         )}
       </StyledLinkContainer>
