@@ -14,6 +14,11 @@ import BikesSection from '../../components/BikesSection/BikesSection';
 import ScrollToTop from '../../helpers/ScrollToTop/ScrollToTop';
 import Footer from '../../components/Footer/Footer';
 
+// Home or HomePage contains most of the sections
+// that we see when the app loads
+// it features scrolling to some of the sections
+// others are covered in the Header component
+
 const Home = () => {
   const bookingSectionRef = useRef<null | HTMLElement>(null);
   const bikesSectionRef = useRef<null | HTMLElement>(null);

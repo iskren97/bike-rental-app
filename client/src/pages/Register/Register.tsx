@@ -3,6 +3,9 @@ import axios from 'axios';
 import Form from '../../components/Form/Form';
 import { useNavigate } from 'react-router-dom';
 
+// Register page handles the logic for registering a user
+// by using the Form component
+
 const Register = () => {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');

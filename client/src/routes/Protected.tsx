@@ -1,6 +1,9 @@
 import React, { FC } from 'react';
 import { Navigate } from 'react-router-dom';
 
+// Protected is a custom component built
+// for protecting manager routes
+
 interface ProtectedProps {
   isManager: boolean;
   children: React.ReactNode;

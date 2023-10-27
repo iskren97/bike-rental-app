@@ -1,6 +1,8 @@
 import { css } from 'styled-components';
 import { colors, fonts } from './constants';
 
+// re-usable styles, styled-components
+
 const BaseButton = css`
   min-height: 3.5rem;
   padding: 0 1.5rem;

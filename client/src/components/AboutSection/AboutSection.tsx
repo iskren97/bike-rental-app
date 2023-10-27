@@ -7,6 +7,8 @@ import {
 } from './AboutSection.styled';
 import AboutBike from '../../assets/about-section-bike.png';
 
+// AboutSection component represents 3rd section of HomePage.
+
 const AboutSection = () => {
   return (
     <AboutSectionContainer id="about">

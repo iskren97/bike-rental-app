@@ -1,3 +1,5 @@
+// re-usable constants
+
 export const colors = {
   primary: 'rgba(190, 220, 130, 255)',
   secondary: 'rgba(241, 242, 181, 0.5)',

@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+// useFetchData custom hook is used for fetching a resource
+// by given url
+
 const useFetchData = (url: string) => {
   const [data, setData] = useState<any[]>([]);
   const [isFetching, setIsFetching] = useState<boolean>(false);

@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import { ScrollContainer, ScrollIcon } from './ScrollToTop.styled';
 import { animateScroll as scroll } from 'react-scroll';
 
+// ScrollToTop component is used for scrolling the page to it's top
+// when clicked for better UX
+
 const ScrollToTop = () => {
   const [showTopBtn, setShowTopBtn] = useState<boolean>(false);
   useEffect(() => {

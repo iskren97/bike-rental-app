@@ -9,6 +9,11 @@ import {
 import Users from './components/Users/Users';
 import Bikes from './components/Bikes/Bikes';
 
+// Manager page holds the Manager Portal
+// where manager can do different things
+// related to Users & Bikes
+// it features 2 components - Users, Bikes
+
 const Manager = () => {
   const { subpath } = useParams();
 

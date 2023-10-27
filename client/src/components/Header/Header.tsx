@@ -10,6 +10,10 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 
+// Header or Navbar component is the top component of the page
+// featuring normal things like Logo, Links
+// also some logic for different user scenarios
+
 const Header = () => {
   const [cookies, setCookies] = useCookies(['access_token', 'user_role']);
   const navigate = useNavigate();

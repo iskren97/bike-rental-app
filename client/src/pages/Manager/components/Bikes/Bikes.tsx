@@ -11,6 +11,9 @@ import useFetchData from '../../../../hooks/useFetchData';
 import Bike from '../../../../components/BikesSection/Bike/Bike';
 import { LoadingDisplay } from '../Users/Users.styled';
 
+// Bikes component part of Manager
+// it handles the logic around Bikes
+
 const Bikes = () => {
   const [file, setFile] = useState<string>('');
   const [allValues, setAllValues] = useState({

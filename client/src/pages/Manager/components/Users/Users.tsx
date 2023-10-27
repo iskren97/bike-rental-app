@@ -10,6 +10,9 @@ import {
 import axios from 'axios';
 import { useState } from 'react';
 
+// Users component part of Manager
+// it handles the logic around Users
+
 const Users = () => {
   const { data: users, setData, isFetching } = useFetchData('/users');
   const [isLoading, setIsLoading] = useState<boolean>(false);

@@ -12,6 +12,9 @@ import {
 import { FC, LegacyRef, useState } from 'react';
 import BookingInfo from '../BookingInfo/BookingInfo';
 
+// DatePicker component will be holding the logic for selecting
+// the pick-up and return dates and also the logic for booking a bike
+
 interface DatePickerProps {
   sectionRef: LegacyRef<HTMLElement>;
 }
@@ -56,6 +59,7 @@ const DatePicker: FC<DatePickerProps> = ({ sectionRef }) => {
 
         <BookingButton>Book a Bike</BookingButton>
       </BookingSection>
+
       <BookingInfo />
     </>
   );

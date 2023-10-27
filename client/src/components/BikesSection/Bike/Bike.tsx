@@ -15,6 +15,9 @@ import {
   BookBikeButton,
 } from './Bike.styled';
 
+// Bike is a re-usable component used for displaying the Bikes
+// and their full information
+
 interface BikeProps {
   model: string;
   color: string;

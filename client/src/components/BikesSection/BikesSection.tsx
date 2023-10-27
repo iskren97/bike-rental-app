@@ -9,6 +9,9 @@ import {
 } from './BikesSection.styled';
 import useFetchData from '../../hooks/useFetchData';
 
+// BikeSection component represents 4rd section of HomePage.
+// It features a Carousel and renders the Bike component for
+// presentation of the bikes
 interface BikesSectionProps {
   sectionRef: LegacyRef<HTMLElement>;
 }
@@ -40,7 +43,6 @@ const BikesSection: FC<BikesSectionProps> = ({ sectionRef }) => {
                   rating={bike.rating}
                   availability={bike.availability}
                   imgUrl={bike.imgUrl}
-                  btnLabel="Rent Bike"
                 />
               );
             })}

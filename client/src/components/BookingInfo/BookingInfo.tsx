@@ -9,6 +9,10 @@ import {
   InnerContainer,
 } from './BookingInfo.styled';
 
+// BookingInfo is a component currently used for presentation purposes
+// It features just dummy elements and icons without any functionalities
+// It is a part of the DatePicker component
+
 const BookingInfo = () => {
   return (
     <BookingInfoContainer>

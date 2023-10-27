@@ -6,6 +6,8 @@ import {
   BikesFormSubmitButton,
 } from './BikesForm.styled';
 
+// BikesForm is used for listing/creating a bike resource
+
 interface BikesFormProps {
   handleBikeListing: React.FormEventHandler<HTMLFormElement>;
   changeHandler: ChangeEventHandler<HTMLInputElement>;

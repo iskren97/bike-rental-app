@@ -9,6 +9,9 @@ import {
   StyledParagraph,
 } from './Form.styled';
 
+// Form component is a re-usable form that is currently used
+// in Register & Login pages, it features props and some logic
+
 interface FormProps {
   label: string;
   username: string;

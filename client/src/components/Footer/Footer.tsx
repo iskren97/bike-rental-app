@@ -9,6 +9,9 @@ import logo from '../../assets/bike-rental-logo.jpg';
 import { StyledLink } from '../Header/Header.styled';
 import { colors } from '../../styles/constants';
 
+// Footer component is used for just presentation currently
+// no dynamic data/logic
+
 const Footer = () => {
   return (
     <StyledFooter id="contact">
