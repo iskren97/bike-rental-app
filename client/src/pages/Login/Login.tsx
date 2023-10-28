@@ -24,7 +24,7 @@ const Login = () => {
 
       setCookies('user_role', response.data.user.role);
       setCookies('access_token', response.data.token);
-
+      window.localStorage.setItem('userID', response.data.user._id);
       alert('Success');
       navigate('/');
     } catch (error) {

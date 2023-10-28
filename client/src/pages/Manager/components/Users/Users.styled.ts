@@ -35,10 +35,15 @@ const UsersActionButton = styled.button`
   }
 `;
 
+const UsersHeading = styled.h1`
+  margin-top: 10rem;
+`;
+
 export {
   UsersContainer,
   LoadingDisplay,
   UsersInnerContainer,
   UsersParagraph,
   UsersActionButton,
+  UsersHeading,
 };

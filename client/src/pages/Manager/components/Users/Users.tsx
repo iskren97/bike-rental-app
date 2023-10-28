@@ -6,9 +6,11 @@ import {
   UsersInnerContainer,
   UsersParagraph,
   LoadingDisplay,
+  UsersHeading,
 } from './Users.styled';
 import axios from 'axios';
 import { useState } from 'react';
+import { useGetUserID } from '../../../../hooks/useGetUserId';
 
 // Users component part of Manager
 // it handles the logic around Users
@@ -16,6 +18,7 @@ import { useState } from 'react';
 const Users = () => {
   const { data: users, setData, isFetching } = useFetchData('/users');
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const userID = useGetUserID();
 
   if (isFetching || isLoading) {
     return <LoadingDisplay>Loading ...</LoadingDisplay>;
@@ -42,21 +45,27 @@ const Users = () => {
       {users.length > 0 ? (
         <>
           {users.map((user) => {
-            return (
-              <UsersInnerContainer key={user._id}>
-                <AiOutlineUser />
-                <UsersParagraph>Username: {user.username}</UsersParagraph>
-                <UsersParagraph>Role: {user.role}</UsersParagraph>
-                <UsersActionButton onClick={() => handleUserDelete(user._id)}>
-                  Delete User
-                </UsersActionButton>
-                <UsersActionButton disabled>Edit User</UsersActionButton>
-              </UsersInnerContainer>
-            );
+            {
+              return (
+                user._id !== userID && (
+                  <UsersInnerContainer key={user._id}>
+                    <AiOutlineUser />
+                    <UsersParagraph>Username: {user.username}</UsersParagraph>
+                    <UsersParagraph>Role: {user.role}</UsersParagraph>
+                    <UsersActionButton
+                      onClick={() => handleUserDelete(user._id)}
+                    >
+                      Delete User
+                    </UsersActionButton>
+                    <UsersActionButton disabled>Edit User</UsersActionButton>
+                  </UsersInnerContainer>
+                )
+              );
+            }
           })}
         </>
       ) : (
-        <h1>No Users yet.</h1>
+        <UsersHeading>No Users yet.</UsersHeading>
       )}
     </UsersContainer>
   );
