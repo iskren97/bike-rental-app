@@ -8,6 +8,7 @@ import axios from 'axios';
 axios.defaults.baseURL = 'http://localhost:4000';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
+  // React.StrictMode allows duplicate requests to happen
   <React.StrictMode>
     <BrowserRouter>
       <App />
