@@ -22,6 +22,7 @@ const Bikes = () => {
     location: '',
     imgUrl: '',
   });
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const { data: bikes, setData: setBikes, isFetching } = useFetchData('/bikes');
 
   const changeHandler = (e: any) => {
@@ -30,6 +31,8 @@ const Bikes = () => {
 
   const handleBikeListing = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    setIsLoading(true);
 
     try {
       const { data } = await axios.post('/bikes/create', {
@@ -51,6 +54,8 @@ const Bikes = () => {
       alert('Success!');
     } catch (error) {
       console.error(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -65,6 +70,8 @@ const Bikes = () => {
   };
 
   const handleBikeDelete = (bikeID: number) => {
+    setIsLoading(true);
+
     axios
       .delete(`/bikes/${bikeID}`)
       .then(({ data }) => {
@@ -74,10 +81,11 @@ const Bikes = () => {
       })
       .catch((error) => {
         console.error(error);
-      });
+      })
+      .finally(() => setIsLoading(false));
   };
 
-  if (isFetching) {
+  if (isFetching || isLoading) {
     return <LoadingDisplay>Loading ...</LoadingDisplay>;
   }
 
