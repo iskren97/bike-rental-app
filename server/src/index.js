@@ -6,6 +6,7 @@ dotenv.config();
 
 import { userRouter } from './routes/users.js';
 import { bikesRouter } from './routes/bikes.js';
+import { bookingsRouter } from './routes/bookings.js';
 
 const app = express();
 app.use(cors());
@@ -14,6 +15,7 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 app.use('/users', userRouter);
 app.use('/bikes', bikesRouter);
+app.use('/bookings', bookingsRouter);
 
 mongoose
   .connect(
