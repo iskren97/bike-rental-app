@@ -1,21 +1,21 @@
 import styled from 'styled-components';
 import { fonts } from '../../styles/constants';
 
-const ManagerPortalContainer = styled.div`
+const ProfileContainer = styled.div`
   margin-top: 10rem;
   padding: 5rem;
 `;
 
-const ManagerPortalHeading = styled.h1`
+const ProfileHeading = styled.h1`
   text-align: center;
   font-size: ${fonts.size.large};
 `;
 
-const ManagerPortalNav = styled.nav`
+const ProfileNav = styled.nav`
   display: flex;
   justify-content: center;
   margin-top: 5rem;
   gap: 5rem;
 `;
 
-export { ManagerPortalContainer, ManagerPortalHeading, ManagerPortalNav };
+export { ProfileContainer, ProfileHeading, ProfileNav };

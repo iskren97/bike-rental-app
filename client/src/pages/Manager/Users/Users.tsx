@@ -1,5 +1,5 @@
 import { AiOutlineUser } from 'react-icons/ai';
-import useFetchData from '../../../../hooks/useFetchData';
+import useFetchData from '../../../hooks/useFetchData';
 import {
   UsersActionButton,
   UsersContainer,
@@ -10,7 +10,8 @@ import {
 } from './Users.styled';
 import axios from 'axios';
 import { useState } from 'react';
-import { useGetUserID } from '../../../../hooks/useGetUserId';
+import { useGetUserID } from '../../../hooks/useGetUserId';
+import { UserDTO } from '../../../types/user';
 
 // Users component part of Manager
 // it handles the logic around Users
@@ -20,11 +21,7 @@ const Users = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const userID = useGetUserID();
 
-  if (isFetching || isLoading) {
-    return <LoadingDisplay>Loading ...</LoadingDisplay>;
-  }
-
-  const handleUserDelete = (userID: number) => {
+  const handleUserDelete = (userID: string) => {
     setIsLoading(true);
 
     axios
@@ -40,11 +37,15 @@ const Users = () => {
       .finally(() => setIsLoading(false));
   };
 
+  if (isFetching || isLoading) {
+    return <LoadingDisplay>Loading ...</LoadingDisplay>;
+  }
+
   return (
     <UsersContainer>
       {users.length > 0 ? (
         <>
-          {users.map((user) => {
+          {users.map((user: UserDTO) => {
             {
               return (
                 user._id !== userID && (

@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
 
     const booking = new BookingModel({
       bike,
-      bikeStatus: bike.availability,
+      isAvailable: bike.availability,
       pickUpDate,
       returnDate,
     });
@@ -34,19 +34,19 @@ router.post('/', async (req, res) => {
   }
 });
 
-// get all bookings
-router.get('/', async (req, res) => {
-  try {
-    const bookings = await BookingModel.find({});
+// // get all bookings
+// router.get('/', async (req, res) => {
+//   try {
+//     const bookings = await BookingModel.find({});
 
-    if (bookings.length === 0) {
-      throw new Error('No bookings yet');
-    }
+//     if (bookings.length === 0) {
+//       throw new Error('No bookings yet');
+//     }
 
-    res.send(bookings);
-  } catch (error) {
-    res.status(500).send({ message: error.message });
-  }
-});
+//     res.send(bookings);
+//   } catch (error) {
+//     res.status(500).send({ message: error.message });
+//   }
+// });
 
 export { router as bookingsRouter };

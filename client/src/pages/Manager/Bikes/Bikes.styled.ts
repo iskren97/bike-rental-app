@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { BaseButton } from '../../../../styles/styles';
-import { colors } from '../../../../styles/constants';
+import { BaseButton } from '../../../styles/styles';
+import { colors } from '../../../styles/constants';
 
 const BikesContainer = styled.div`
   text-align: center;

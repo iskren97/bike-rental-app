@@ -1,5 +1,6 @@
 import express from 'express';
 import BikeModel from '../models/Bikes.js';
+import UserModel from '../models/Users.js';
 
 const router = express.Router();
 
@@ -33,6 +34,7 @@ router.get('/', async (req, res) => {
 // git current user reserved bikes by id
 router.get('/reservedBikes/:userID', async (req, res) => {
   try {
+    console.log(req.params.userID);
     const user = await UserModel.findById(req.params.userID);
     const reservedBikes = await BikeModel.find({
       _id: { $in: user.reservedBikes },

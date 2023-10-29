@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { colors, fonts } from '../../../../styles/constants';
-import { BaseButton } from '../../../../styles/styles';
+import { colors, fonts } from '../../../styles/constants';
+import { BaseButton } from '../../../styles/styles';
 
 const StyledBikesForm = styled.form`
   background: ${colors.white};

@@ -5,11 +5,12 @@ import {
   BikesDeleteBikeButton,
   BikesHeading,
 } from './Bikes.styled';
-import { covertToBase64 } from '../../../../helpers/Base64Convertor/Base64Covertor';
+import { covertToBase64 } from '../../../helpers/Base64Convertor/Base64Covertor';
 import BikesForm from '../BikesForm/BikesForm';
-import useFetchData from '../../../../hooks/useFetchData';
-import Bike from '../../../../components/BikesSection/Bike/Bike';
+import useFetchData from '../../../hooks/useFetchData';
+import Bike from '../../../components/BikesSection/Bike/Bike';
 import { LoadingDisplay } from '../Users/Users.styled';
+import { BikeDTO } from '../../../types/bike';
 
 // Bikes component part of Manager
 // it handles the logic around Bikes
@@ -69,7 +70,7 @@ const Bikes = () => {
     setFile(base64);
   };
 
-  const handleBikeDelete = (bikeID: number) => {
+  const handleBikeDelete = (bikeID: string) => {
     setIsLoading(true);
 
     axios
@@ -101,7 +102,7 @@ const Bikes = () => {
       <BikesHeading>Listed Bikes:</BikesHeading>
       {bikes.length > 0 ? (
         <>
-          {bikes?.map((bike) => {
+          {bikes?.map((bike: BikeDTO) => {
             return (
               <BikesContainer key={bike._id}>
                 <Bike
@@ -111,7 +112,6 @@ const Bikes = () => {
                   rating={bike.rating}
                   availability={bike.availability}
                   imgUrl={bike.imgUrl}
-                  hideRentButton={true}
                 />
 
                 <BikesDeleteBikeButton
