@@ -10,7 +10,6 @@ import { colors } from '../../styles/constants';
 import DatePicker from '../../components/DatePicker/DatePicker';
 import { useRef } from 'react';
 import AboutSection from '../../components/AboutSection/AboutSection';
-import BikesSection from '../../components/BikesSection/BikesSection';
 import ScrollToTop from '../../helpers/ScrollToTop/ScrollToTop';
 import Footer from '../../components/Footer/Footer';
 
@@ -52,9 +51,11 @@ const Home = () => {
         </DescContainer>
       </HomeContainer>
 
-      <DatePicker sectionRef={bookingSectionRef} />
+      <DatePicker
+        sectionRef={bookingSectionRef}
+        bikeSectionRef={bikesSectionRef}
+      />
       <AboutSection />
-      <BikesSection sectionRef={bikesSectionRef} />
       <Footer />
       <ScrollToTop />
     </>

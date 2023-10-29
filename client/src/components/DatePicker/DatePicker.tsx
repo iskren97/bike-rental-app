@@ -1,6 +1,5 @@
 import { BiCalendarCheck } from 'react-icons/bi';
 import { colors } from '../../styles/constants';
-import { BookingButton } from '../../pages/Home/Home.styled';
 import {
   BookingSection,
   DateCalendar,
@@ -11,15 +10,17 @@ import {
 } from './DatePicker.styled';
 import { FC, LegacyRef, useState } from 'react';
 import BookingInfo from '../BookingInfo/BookingInfo';
+import BikesSection from '../BikesSection/BikesSection';
 
 // DatePicker component will be holding the logic for selecting
 // the pick-up and return dates and also the logic for booking a bike
 
 interface DatePickerProps {
   sectionRef: LegacyRef<HTMLElement>;
+  bikeSectionRef: LegacyRef<HTMLElement>;
 }
 
-const DatePicker: FC<DatePickerProps> = ({ sectionRef }) => {
+const DatePicker: FC<DatePickerProps> = ({ sectionRef, bikeSectionRef }) => {
   const [pickUpDate, setPickUpDate] = useState<Date>(new Date());
   const [isPickUpOpen, setIsPickUpOpen] = useState<boolean>(false);
 
@@ -56,11 +57,15 @@ const DatePicker: FC<DatePickerProps> = ({ sectionRef }) => {
             <DateCalendar value={returnDate} onChange={setReturnDate as any} />
           )}
         </IconCalendarContainer>
-
-        <BookingButton>Book a Bike</BookingButton>
       </BookingSection>
 
       <BookingInfo />
+
+      <BikesSection
+        pickUpDate={pickUpDate}
+        returnDate={returnDate}
+        sectionRef={bikeSectionRef}
+      />
     </>
   );
 };

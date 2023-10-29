@@ -11,11 +11,6 @@ const AboutSectionContainer = styled.section`
     ${colors.secondary},
     ${colors.tertiary}
   );
-  transform: skewY(-7deg);
-
-  & > * {
-    transform: skewY(7deg);
-  }
 `;
 
 const AboutBikeImage = styled.img`

@@ -7,7 +7,7 @@ import {
 } from './AboutSection.styled';
 import AboutBike from '../../assets/about-section-bike.png';
 
-// AboutSection component represents 3rd section of HomePage.
+// AboutSection component represents 4th section of HomePage.
 
 const AboutSection = () => {
   return (
