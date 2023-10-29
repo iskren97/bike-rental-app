@@ -103,9 +103,8 @@ const Bikes = () => {
         <>
           {bikes?.map((bike) => {
             return (
-              <>
+              <BikesContainer key={bike._id}>
                 <Bike
-                  key={bike._id}
                   model={bike.model}
                   color={bike.color}
                   location={bike.location}
@@ -120,7 +119,7 @@ const Bikes = () => {
                 >
                   Remove Bike
                 </BikesDeleteBikeButton>
-              </>
+              </BikesContainer>
             );
           })}
         </>
