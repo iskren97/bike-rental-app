@@ -19,10 +19,9 @@ interface BikeProps {
   model: string;
   color: string;
   location: string;
-  rating: number;
-  availability: boolean;
+  rating?: number;
+  availability?: boolean;
   imgUrl: string;
-  hideRentButton?: boolean;
 }
 
 const Bike: FC<BikeProps> = ({

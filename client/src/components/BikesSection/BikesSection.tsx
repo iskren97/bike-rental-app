@@ -15,10 +15,12 @@ import axios from 'axios';
 import { useGetUserID } from '../../hooks/useGetUserId';
 import '../../index.css';
 import { colors } from '../../styles/constants';
+import { BikeDTO } from '../../types/bike';
 
 // BikeSection component represents 3rd section of HomePage.
 // It features a Carousel and renders the Bike component for
 // presentation of the bikes
+// it is responsible for the logic around booking a bike
 
 const indicatorStyles = {
   background: `${colors.primary}`,
@@ -44,14 +46,14 @@ const BikesSection: FC<BikesSectionProps> = ({
   const { data: bikes, setData: setBikes } = useFetchData('/bikes');
   const userID = useGetUserID();
 
-  const handleBikeRental = (bikeID: number) => {
+  const handleBikeRental = (bikeID: string) => {
     axios
       .post(`/bookings`, { pickUpDate, returnDate, userID, bikeID })
       .then((resp) => {
         setBikes((prevBikes) =>
           prevBikes.map((bike) =>
             bike._id === resp.data.bike
-              ? { ...bike, availability: resp.data.bikeStatus }
+              ? { ...bike, availability: resp.data.isAvailable }
               : bike
           )
         );
@@ -97,7 +99,7 @@ const BikesSection: FC<BikesSectionProps> = ({
               );
             }}
           >
-            {bikes.map((bike) => {
+            {bikes.map((bike: BikeDTO) => {
               return (
                 <BikesInnerContainer key={bike._id}>
                   <Bike
