@@ -16,7 +16,7 @@ import { useGetUserID } from '../../../../hooks/useGetUserId';
 // it handles the logic around Users
 
 const Users = () => {
-  const { data: users, setData, isFetching } = useFetchData('/users');
+  const { data: users, setData: setUsers, isFetching } = useFetchData('/users');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const userID = useGetUserID();
 
@@ -30,7 +30,7 @@ const Users = () => {
     axios
       .delete(`/users/${userID}`)
       .then(({ data }) => {
-        setData((prevUsers) =>
+        setUsers((prevUsers) =>
           prevUsers.filter((user) => user._id !== data._id)
         );
       })

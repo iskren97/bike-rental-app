@@ -6,18 +6,60 @@ import {
   BikesSectionContainer,
   BikesHeading,
   BikesContainer,
+  StyledIndicator,
+  BikesInnerContainer,
 } from './BikesSection.styled';
 import useFetchData from '../../hooks/useFetchData';
+import { BookBikeButton } from './Bike/Bike.styled';
+import axios from 'axios';
+import { useGetUserID } from '../../hooks/useGetUserId';
+import '../../index.css';
+import { colors } from '../../styles/constants';
 
-// BikeSection component represents 4rd section of HomePage.
+// BikeSection component represents 3rd section of HomePage.
 // It features a Carousel and renders the Bike component for
 // presentation of the bikes
+
+const indicatorStyles = {
+  background: `${colors.primary}`,
+  width: 15,
+  height: 15,
+  borderRadius: '50%',
+  display: 'inline-block',
+  margin: '0 8px',
+  cursor: 'pointer',
+};
+
 interface BikesSectionProps {
   sectionRef: LegacyRef<HTMLElement>;
+  pickUpDate: Date;
+  returnDate: Date;
 }
 
-const BikesSection: FC<BikesSectionProps> = ({ sectionRef }) => {
-  const { data: bikes } = useFetchData('/bikes');
+const BikesSection: FC<BikesSectionProps> = ({
+  pickUpDate,
+  returnDate,
+  sectionRef,
+}) => {
+  const { data: bikes, setData: setBikes } = useFetchData('/bikes');
+  const userID = useGetUserID();
+
+  const handleBikeRental = (bikeID: number) => {
+    axios
+      .post(`/bookings`, { pickUpDate, returnDate, userID, bikeID })
+      .then((resp) => {
+        setBikes((prevBikes) =>
+          prevBikes.map((bike) =>
+            bike._id === resp.data.bike
+              ? { ...bike, availability: resp.data.bikeStatus }
+              : bike
+          )
+        );
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   return (
     <>
@@ -32,18 +74,47 @@ const BikesSection: FC<BikesSectionProps> = ({ sectionRef }) => {
             showThumbs={false}
             showStatus={false}
             showArrows={false}
-          >
-            {bikes?.map((bike) => {
+            renderIndicator={(onClickHandler, isSelected, index) => {
+              if (isSelected) {
+                return (
+                  <StyledIndicator
+                    style={{
+                      ...indicatorStyles,
+                      background: `${colors.tertiary}`,
+                    }}
+                  />
+                );
+              }
+
               return (
-                <Bike
-                  key={bike._id}
-                  model={bike.model}
-                  color={bike.color}
-                  location={bike.location}
-                  rating={bike.rating}
-                  availability={bike.availability}
-                  imgUrl={bike.imgUrl}
+                <StyledIndicator
+                  style={indicatorStyles}
+                  onClick={onClickHandler}
+                  value={index}
+                  key={index}
+                  tabIndex={0}
                 />
+              );
+            }}
+          >
+            {bikes.map((bike) => {
+              return (
+                <BikesInnerContainer key={bike._id}>
+                  <Bike
+                    model={bike.model}
+                    color={bike.color}
+                    location={bike.location}
+                    rating={bike.rating}
+                    availability={bike.availability}
+                    imgUrl={bike.imgUrl}
+                  />
+                  <BookBikeButton
+                    onClick={() => handleBikeRental(bike._id)}
+                    disabled={!bike.availability}
+                  >
+                    Rent Bike
+                  </BookBikeButton>
+                </BikesInnerContainer>
               );
             })}
           </Carousel>

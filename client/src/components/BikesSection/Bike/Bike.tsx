@@ -1,19 +1,16 @@
 import { FC } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { FaLocationDot } from 'react-icons/fa6';
-import {
-  IoIosColorPalette,
-  IoIosCheckmarkCircleOutline,
-  IoIosCloseCircleOutline,
-} from 'react-icons/io';
+import { IoIosColorPalette, IoIosCloseCircleOutline } from 'react-icons/io';
+import { AiFillCheckCircle } from 'react-icons/ai';
 import { FcRating } from 'react-icons/fc';
 import {
   BikeContainer,
   BikeImg,
   BikeInfoParagraph,
   BikeModel,
-  BookBikeButton,
 } from './Bike.styled';
+import { colors } from '../../../styles/constants';
 
 // Bike is a re-usable component used for displaying the Bikes
 // and their full information
@@ -35,7 +32,6 @@ const Bike: FC<BikeProps> = ({
   rating,
   availability,
   imgUrl,
-  hideRentButton,
 }) => {
   return (
     <BikeContainer>
@@ -58,15 +54,11 @@ const Bike: FC<BikeProps> = ({
       <BikeInfoParagraph>
         Availability:{' '}
         {availability === true ? (
-          <IoIosCheckmarkCircleOutline />
+          <AiFillCheckCircle color={colors.primary} />
         ) : (
-          <IoIosCloseCircleOutline />
+          <IoIosCloseCircleOutline color={colors.error} />
         )}
       </BikeInfoParagraph>
-
-      <BookBikeButton hidden={hideRentButton} disabled={!availability}>
-        Rent Bike
-      </BookBikeButton>
     </BikeContainer>
   );
 };

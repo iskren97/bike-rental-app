@@ -12,8 +12,8 @@ const BikeContainer = styled.div`
 `;
 
 const BikeImg = styled.img`
-  width: 45rem;
-  height: 45rem;
+  width: 40rem;
+  height: 40rem;
   object-fit: contain;
 `;
 
@@ -41,6 +41,10 @@ const BookBikeButton = styled.button`
       ${colors.secondary},
       ${colors.tertiary}
     );
+
+    &:disabled {
+      height: 400rem;
+    }
   }
 `;
 

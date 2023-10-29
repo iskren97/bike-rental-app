@@ -58,6 +58,10 @@ router.get('/', async (req, res) => {
   try {
     const users = await UserModel.find({});
 
+    if (users.length === 0) {
+      throw new Error('No users yet');
+    }
+
     res.send(users);
   } catch (error) {
     res.status(500).send({ message: error.message });

@@ -27,4 +27,16 @@ const BikesContainer = styled.div`
   margin-top: -10rem;
 `;
 
-export { BikesSectionContainer, BikesHeading, BikesContainer };
+const StyledIndicator = styled.li``;
+
+const BikesInnerContainer = styled.div`
+  height: 82rem;
+`;
+
+export {
+  BikesSectionContainer,
+  BikesHeading,
+  BikesContainer,
+  StyledIndicator,
+  BikesInnerContainer,
+};
