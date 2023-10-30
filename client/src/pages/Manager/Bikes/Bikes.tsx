@@ -14,6 +14,7 @@ import { BikeDTO } from '../../../types/bike';
 
 // Bikes component part of Manager
 // it handles the logic around Bikes
+// creation, deletion, !no update func yet.!
 
 const Bikes = () => {
   const [file, setFile] = useState<string>('');

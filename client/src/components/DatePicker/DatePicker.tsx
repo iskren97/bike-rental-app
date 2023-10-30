@@ -15,6 +15,8 @@ import BikesSection from '../BikesSection/BikesSection';
 // DatePicker component will be holding the logic for selecting
 // the pick-up and return dates that are needed for booking a bike
 
+// !validation for pick-up and return dates were not added at this point
+// both on the server & client side!
 interface DatePickerProps {
   sectionRef: LegacyRef<HTMLElement>;
   bikeSectionRef: LegacyRef<HTMLElement>;

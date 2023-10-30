@@ -9,6 +9,10 @@ import {
   CancelBookingButton,
 } from './UserBookings.styled';
 
+// UserBookings component is part of the Profile page
+// and is responsible for presenting the bookings that each
+// user made, also the functionality for cancelling a booking
+
 const UserBookings = () => {
   const [userRentedBikes, setUserReservedBikes] = useState<BikeDTO[]>([]);
   const userID = useGetUserID();

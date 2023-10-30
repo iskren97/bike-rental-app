@@ -14,6 +14,7 @@ import { UserDTO } from '../../../types/user';
 
 // Users component part of Manager
 // it handles the logic around Users
+// creation, deletion, !no update func yet.!
 
 const Users = () => {
   const { data: users, setData: setUsers, isFetching } = useFetchData('/users');

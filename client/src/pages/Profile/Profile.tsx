@@ -7,10 +7,11 @@ import Bikes from '../Manager/Bikes/Bikes';
 import UserBookings from '../../components/UserBookings/UserBookings';
 import { useCookies } from 'react-cookie';
 
-// Manager page holds the Manager Portal
-// where manager can do different things
+// Profile page holds the Profile page of the logged user
+// and the Manager Portal
+// where managers can do different things
 // related to Users & Bikes
-// it features 2 components - Users, Bikes
+// it features 3 components - Users, Bikes, UserBookings
 
 const Profile = () => {
   const { subpath } = useParams();

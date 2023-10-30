@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { Navigate } from 'react-router-dom';
 
 // Protected is a custom component built
-// for protecting manager routes
+// for protecting profile routes
 
 interface ProtectedProps {
   isLoggedIn: boolean;
