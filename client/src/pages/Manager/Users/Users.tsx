@@ -10,7 +10,6 @@ import {
 } from './Users.styled';
 import axios from 'axios';
 import { useState } from 'react';
-import { useGetUserID } from '../../../hooks/useGetUserId';
 import { UserDTO } from '../../../types/user';
 
 // Users component part of Manager
@@ -19,7 +18,6 @@ import { UserDTO } from '../../../types/user';
 const Users = () => {
   const { data: users, setData: setUsers, isFetching } = useFetchData('/users');
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const userID = useGetUserID();
 
   const handleUserDelete = (userID: string) => {
     setIsLoading(true);
@@ -43,30 +41,26 @@ const Users = () => {
 
   return (
     <UsersContainer>
-      {users.length > 0 ? (
+      {users.length > 1 ? (
         <>
           {users.map((user: UserDTO) => {
             {
               return (
-                user._id !== userID && (
-                  <UsersInnerContainer key={user._id}>
-                    <AiOutlineUser />
-                    <UsersParagraph>Username: {user.username}</UsersParagraph>
-                    <UsersParagraph>Role: {user.role}</UsersParagraph>
-                    <UsersActionButton
-                      onClick={() => handleUserDelete(user._id)}
-                    >
-                      Delete User
-                    </UsersActionButton>
-                    <UsersActionButton disabled>Edit User</UsersActionButton>
-                  </UsersInnerContainer>
-                )
+                <UsersInnerContainer key={user._id}>
+                  <AiOutlineUser />
+                  <UsersParagraph>Username: {user.username}</UsersParagraph>
+                  <UsersParagraph>Role: {user.role}</UsersParagraph>
+                  <UsersActionButton onClick={() => handleUserDelete(user._id)}>
+                    Delete User
+                  </UsersActionButton>
+                  <UsersActionButton disabled>Edit User</UsersActionButton>
+                </UsersInnerContainer>
               );
             }
           })}
         </>
       ) : (
-        <UsersHeading>No Users yet.</UsersHeading>
+        <UsersHeading>You are the only user left.</UsersHeading>
       )}
     </UsersContainer>
   );
