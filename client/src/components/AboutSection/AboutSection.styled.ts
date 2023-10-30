@@ -5,6 +5,8 @@ const AboutSectionContainer = styled.section`
   display: flex;
   align-items: center;
   padding: 5rem 5rem;
+  gap: 5rem;
+
   color: ${colors.white};
   background-image: linear-gradient(
     to right,
@@ -14,8 +16,8 @@ const AboutSectionContainer = styled.section`
 `;
 
 const AboutBikeImage = styled.img`
-  width: 70rem;
-  height: 70rem;
+  width: 60rem;
+  height: 60rem;
   object-fit: contain;
 `;
 

@@ -7,13 +7,13 @@ const BikeContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  padding: 5rem;
+  padding: 3rem;
   border-radius: 1rem;
 `;
 
 const BikeImg = styled.img`
-  width: 40rem;
-  height: 40rem;
+  width: 30rem;
+  height: 30rem;
   object-fit: contain;
 `;
 

@@ -14,9 +14,8 @@ const AboutSection = () => {
     <AboutSectionContainer id="about">
       <AboutBikeImage src={AboutBike} alt="bike" />
       <AboutDescriptionContainer>
-        <AboutHeading>
-          Explore our great deals and choose the one that suits you the most
-        </AboutHeading>
+        <AboutHeading>About us</AboutHeading>
+
         <AboutDescParagraph>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate
           eligendi consectetur totam illo doloremque quo nostrum facere, facilis
