@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BikeDTO } from '../../types/bike';
 import { useGetUserID } from '../../hooks/useGetUserId';
@@ -22,6 +22,19 @@ const UserBookings = () => {
       });
   }, []);
 
+  const handleCancellation = (bikeID: string) => {
+    axios
+      .delete(`/bookings/${bikeID}`, { data: { userID } })
+      .then(({ data }) =>
+        setUserReservedBikes((prevBikes) =>
+          prevBikes.filter((bike) => bike._id !== data.bike)
+        )
+      )
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   return (
     <BookingsContainer>
       {userRentedBikes?.length > 0 ? (
@@ -40,7 +53,11 @@ const UserBookings = () => {
                   imgUrl={bike.imgUrl}
                 />
 
-                <CancelBookingButton>Cancel Reservation</CancelBookingButton>
+                <CancelBookingButton
+                  onClick={() => handleCancellation(bike._id)}
+                >
+                  Cancel Reservation
+                </CancelBookingButton>
               </BookingsContainer>
             );
           })}

@@ -34,19 +34,33 @@ router.post('/', async (req, res) => {
   }
 });
 
-// // get all bookings
-// router.get('/', async (req, res) => {
-//   try {
-//     const bookings = await BookingModel.find({});
+// cancel/delete booking
+router.delete('/:id', async (req, res) => {
+  try {
+    const booking = await BookingModel.findOneAndDelete({
+      bike: req.params.id,
+    });
 
-//     if (bookings.length === 0) {
-//       throw new Error('No bookings yet');
-//     }
+    const bike = await BikeModel.findById({ _id: req.params.id });
+    const user = await UserModel.findById({ _id: req.body.userID });
 
-//     res.send(bookings);
-//   } catch (error) {
-//     res.status(500).send({ message: error.message });
-//   }
-// });
+    if (!bike) {
+      res.status(404).send();
+    }
+
+    user.reservedBikes = user.reservedBikes.filter(
+      (objID) => objID.toString() !== req.params.id
+    );
+    bike.availability = true;
+    bike.reservedBy = null;
+
+    await bike.save();
+    await user.save();
+
+    res.send(booking);
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+});
 
 export { router as bookingsRouter };
