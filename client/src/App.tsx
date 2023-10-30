@@ -7,12 +7,9 @@ import Profile from './pages/Profile/Profile';
 import { useCookies } from 'react-cookie';
 import Protected from './routes/Protected';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
-import useUser from './hooks/useUser';
 
 const App = () => {
-  const [cookies, _] = useCookies(['user_role']);
-  const user = useUser();
-  console.log(user);
+  const [cookies, _] = useCookies(['access_token']);
 
   return (
     <>
@@ -21,9 +18,14 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/profile/:subpath" element={<Profile />} />
+          <Route
+            path="/profile/:subpath?"
+            element={
+              <Protected isLoggedIn={!!cookies.access_token}>
+                <Profile />
+              </Protected>
+            }
+          />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

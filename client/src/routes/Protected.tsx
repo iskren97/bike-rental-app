@@ -5,12 +5,12 @@ import { Navigate } from 'react-router-dom';
 // for protecting manager routes
 
 interface ProtectedProps {
-  isManager: boolean;
+  isLoggedIn: boolean;
   children: React.ReactNode;
 }
 
-const Protected: FC<ProtectedProps> = ({ isManager, children }) => {
-  if (!isManager) {
+const Protected: FC<ProtectedProps> = ({ isLoggedIn, children }) => {
+  if (!isLoggedIn) {
     return <Navigate to="/" replace />;
   }
   return children;

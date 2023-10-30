@@ -1,11 +1,9 @@
-import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { StyledLink } from '../../components/Header/Header.styled';
 import { colors } from '../../styles/constants';
 import { ProfileContainer, ProfileHeading, ProfileNav } from './Profile.styled';
 import Users from '../Manager/Users/Users';
 import Bikes from '../Manager/Bikes/Bikes';
-import { useGetUserID } from '../../hooks/useGetUserId';
 import UserBookings from '../../components/UserBookings/UserBookings';
 import { useCookies } from 'react-cookie';
 
@@ -46,18 +44,16 @@ const Profile = () => {
           </>
         )}
 
-        {cookies?.user_role === 'user' && (
-          <StyledLink
-            style={linkClasses('reservations')}
-            to={'/profile/reservations'}
-          >
-            Reservations
-          </StyledLink>
-        )}
+        <StyledLink
+          style={linkClasses('reservations')}
+          to={'/profile/reservations'}
+        >
+          Reservations
+        </StyledLink>
       </ProfileNav>
 
-      {subpath === 'users' && <Users />}
-      {subpath === 'bikes' && <Bikes />}
+      {subpath === 'users' && cookies?.user_role === 'manager' && <Users />}
+      {subpath === 'bikes' && cookies?.user_role === 'manager' && <Bikes />}
       {subpath === 'reservations' && <UserBookings />}
     </ProfileContainer>
   );
