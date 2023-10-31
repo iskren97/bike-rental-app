@@ -9,8 +9,8 @@ import { covertToBase64 } from '../../../helpers/Base64Convertor/Base64Covertor'
 import BikesForm from '../BikesForm/BikesForm';
 import useFetchData from '../../../hooks/useFetchData';
 import Bike from '../../../components/BikesSection/Bike/Bike';
-import { LoadingDisplay } from '../Users/Users.styled';
 import { BikeDTO } from '../../../types/bike';
+import LoadingSpinner from '../../../components/LoadingSpinner/LoadingSpinner';
 
 // Bikes component part of Manager
 // it handles the logic around Bikes
@@ -88,7 +88,7 @@ const Bikes = () => {
   };
 
   if (isFetching || isLoading) {
-    return <LoadingDisplay>Loading ...</LoadingDisplay>;
+    return <LoadingSpinner />;
   }
 
   return (

@@ -17,7 +17,7 @@ const Profile = () => {
   const { subpath } = useParams();
   const [cookies, _] = useCookies(['user_role']);
 
-  const linkClasses = (type: string = '') => {
+  const linkStyles = (type: string = '') => {
     if (type === subpath) {
       return {
         backgroundColor: `${colors.primary}`,
@@ -35,18 +35,18 @@ const Profile = () => {
       <ProfileNav>
         {cookies?.user_role === 'manager' && (
           <>
-            <StyledLink style={linkClasses('bikes')} to={'/profile/bikes'}>
+            <StyledLink style={linkStyles('bikes')} to={'/profile/bikes'}>
               Bikes
             </StyledLink>
 
-            <StyledLink style={linkClasses('users')} to={'/profile/users'}>
+            <StyledLink style={linkStyles('users')} to={'/profile/users'}>
               Users
             </StyledLink>
           </>
         )}
 
         <StyledLink
-          style={linkClasses('reservations')}
+          style={linkStyles('reservations')}
           to={'/profile/reservations'}
         >
           Reservations

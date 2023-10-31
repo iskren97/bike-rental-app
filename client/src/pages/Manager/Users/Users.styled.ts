@@ -10,11 +10,6 @@ const UsersContainer = styled.div`
   gap: 5rem;
 `;
 
-const LoadingDisplay = styled.h1`
-  text-align: center;
-  margin-top: 5rem;
-`;
-
 const UsersInnerContainer = styled.div`
   font-size: ${fonts.size.medium};
   box-shadow: 0 2px 4px 0 ${colors.blackLighter};
@@ -41,7 +36,6 @@ const UsersHeading = styled.h1`
 
 export {
   UsersContainer,
-  LoadingDisplay,
   UsersInnerContainer,
   UsersParagraph,
   UsersActionButton,

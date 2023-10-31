@@ -16,6 +16,7 @@ import { useGetUserID } from '../../hooks/useGetUserId';
 import '../../index.css';
 import { colors } from '../../styles/constants';
 import { BikeDTO } from '../../types/bike';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 // BikeSection component represents 3rd section of HomePage.
 // It features a Carousel and renders the Bike component for
@@ -43,7 +44,7 @@ const BikesSection: FC<BikesSectionProps> = ({
   returnDate,
   sectionRef,
 }) => {
-  const { data: bikes, setData: setBikes } = useFetchData('/bikes');
+  const { data: bikes, setData: setBikes, isFetching } = useFetchData('/bikes');
   const userID = useGetUserID();
 
   const handleBikeRental = (bikeID: string) => {
@@ -62,6 +63,10 @@ const BikesSection: FC<BikesSectionProps> = ({
         console.error(error);
       });
   };
+
+  if (isFetching) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <>

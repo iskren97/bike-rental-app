@@ -5,12 +5,12 @@ import {
   UsersContainer,
   UsersInnerContainer,
   UsersParagraph,
-  LoadingDisplay,
   UsersHeading,
 } from './Users.styled';
 import axios from 'axios';
 import { useState } from 'react';
 import { UserDTO } from '../../../types/user';
+import LoadingSpinner from '../../../components/LoadingSpinner/LoadingSpinner';
 
 // Users component part of Manager
 // it handles the logic around Users
@@ -37,7 +37,7 @@ const Users = () => {
   };
 
   if (isFetching || isLoading) {
-    return <LoadingDisplay>Loading ...</LoadingDisplay>;
+    return <LoadingSpinner />;
   }
 
   return (
