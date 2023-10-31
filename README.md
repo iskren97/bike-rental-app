@@ -29,7 +29,7 @@ npm install
 4. Run the application and leave the terminal running
 
 ```sh
- nodemon src/index.js or nodemon index.js (if you are in src directory)
+ npm start
 ```
 
 5. Open **new terminal** and switch to **client** folder
